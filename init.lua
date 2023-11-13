@@ -2,7 +2,12 @@ local set = vim.o
 set.number = true
 set.clipboard = "unnamed"
 set.relativenumber = true
-
+set.termguicolors = false
+set.tabstop = 2
+set.smarttab = true
+set.scrolloff = 6
+set.ignorecase = true
+set.smartcase = true
 
 -- 在 copy 后高亮
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
@@ -23,6 +28,7 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", opt)
 vim.keymap.set("n", "<C-k>", "<C-w>k", opt)
 vim.keymap.set("n", "<Leader>v", "<C-w>v", opt)
 vim.keymap.set("n", "<Leader>s", "<C-w>s", opt)
+vim.keymap.set("i", "jk", "<Esc>", opt)
 
 -- https://www.reddit.com/r/vim/comments/2k4cbr/problem_with_gj_and_gk/
 vim.keymap.set("n", "j", [[v:count ? 'j' : 'gj']], { noremap = true, expr = true })
@@ -50,7 +56,6 @@ require("lazy").setup({
     dependencies = {
       "tjdevries/colorbuddy.nvim"
     },
-    lazy = true
   },
    {
   "folke/persistence.nvim",
@@ -65,7 +70,16 @@ require("lazy").setup({
 	{ "<leader>P", ":Telescope live_grep<CR>", desc = "grep file" },
 	{ "<leader>rs", ":Telescope resume<CR>", desc = "resume" },
 	{ "<leader>q", ":Telescope oldfiles<CR>", desc = "oldfiles" },
-      }
+      },
+      config = function()
+	require('telescope').setup{
+	
+	defaults = {
+	   file_ignore_patterns = { "node_modules" }
+	 }
+	}
+
+      end
     },
 {
     "williamboman/mason.nvim",
@@ -81,6 +95,15 @@ require("lazy").setup({
     vim.o.timeout = true
     vim.o.timeoutlen = 300
   end,
+},
+{
+  'nvim-lualine/lualine.nvim',
+  requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+  config = function()
+				require('lualine').setup {
+           options = { theme = 'codedark' } 
+				}
+	end
 }
 
 })

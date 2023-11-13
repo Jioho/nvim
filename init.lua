@@ -66,46 +66,46 @@ require("lazy").setup({
       'nvim-telescope/telescope.nvim', tag = '0.1.4',
       dependencies = { 'nvim-lua/plenary.nvim' },
       keys = {
-	{ "<leader>p", ":Telescope find_files<CR>", desc = "find files" },
-	{ "<leader>P", ":Telescope live_grep<CR>", desc = "grep file" },
-	{ "<leader>rs", ":Telescope resume<CR>", desc = "resume" },
-	{ "<leader>q", ":Telescope oldfiles<CR>", desc = "oldfiles" },
+					{ "<leader>p", ":Telescope find_files<CR>", desc = "find files" },
+					{ "<leader>P", ":Telescope live_grep<CR>", desc = "grep file" },
+					{ "<leader>rs", ":Telescope resume<CR>", desc = "resume" },
+					{ "<leader>q", ":Telescope oldfiles<CR>", desc = "oldfiles" },
       },
       config = function()
-	require('telescope').setup{
-	
-	defaults = {
-	   file_ignore_patterns = { "node_modules" }
-	 }
-	}
+					require('telescope').setup{
+					
+					defaults = {
+						 file_ignore_patterns = { "node_modules" }
+					 }
+					}
 
       end
     },
-{
-    "williamboman/mason.nvim",
-    event = "VeryLazy",
-    config = function()
-	    require("mason").setup()
-	end
-},
-{
-	  "folke/which-key.nvim",
-  event = "VeryLazy",
-  init = function()
-    vim.o.timeout = true
-    vim.o.timeoutlen = 300
-  end,
-},
-{
-  'nvim-lualine/lualine.nvim',
-  requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-  config = function()
-				require('lualine').setup {
-           options = { theme = 'codedark' } 
-				}
-	end
-}
-
+				{
+						"williamboman/mason.nvim",
+						event = "VeryLazy",
+						config = function()
+							require("mason").setup()
+					end
+				},
+				{
+						"folke/which-key.nvim",
+					event = "VeryLazy",
+					init = function()
+						vim.o.timeout = true
+						vim.o.timeoutlen = 300
+					end,
+				},
+				{
+					'nvim-lualine/lualine.nvim',
+					requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+					config = function()
+								require('lualine').setup {
+									 options = { theme = 'codedark' } 
+								}
+					end
+				},
+				{ "elentok/format-on-save.nvim" }
 })
 
 

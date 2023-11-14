@@ -3,11 +3,13 @@ set.number = true
 set.clipboard = "unnamed"
 set.relativenumber = true
 set.termguicolors = true
+set.background = 'dark'
 set.tabstop = 2
 set.smarttab = true
 set.scrolloff = 6
 set.ignorecase = true
 set.smartcase = true
+
 
 -- 在 copy 后高亮
 vim.api.nvim_create_autocmd({ "TextYankPost" }, {
@@ -89,12 +91,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	{
-		"2nthony/vitesse.nvim",
-		dependencies = {
-			"tjdevries/colorbuddy.nvim"
-		},
-	},
-	{
 		"folke/persistence.nvim",
 		event = "BufReadPre", -- this will only start session saving when an actual file was opened
 	},
@@ -161,14 +157,28 @@ require("lazy").setup({
 		end,
 	},
 	{
+		'rafalbromirski/vim-aurora'
+	},
+	{
+		'mg979/vim-visual-multi',
+	},
+	{
 		'nvim-lualine/lualine.nvim',
-		requires = { 'nvim-tree/nvim-web-devicons', opt = true },
+		--dependencies = { 'nvim-tree/nvim-web-devicons', opt = true },
 		config = function()
 			require('lualine').setup {
-				options = { theme = 'codedark' }
 			}
 		end
 	},
+	--	{
+	--		"2nthony/vitesse.nvim",
+	--		dependencies = {
+	--			"tjdevries/colorbuddy.nvim"
+	--		},
+	--		config = function()
+	--			require('vitesse').setup()
+	--		end
+	--	},
 	--{ "elentok/format-on-save.nvim" }
 })
 
@@ -314,3 +324,8 @@ cmp.setup.cmdline(':', {
 		{ name = 'cmdline' }
 	})
 })
+
+
+
+-- 应用 Aurora 主题
+vim.cmd("colorscheme aurora")

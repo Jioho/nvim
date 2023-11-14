@@ -95,6 +95,22 @@ require("lazy").setup({
 		event = "BufReadPre", -- this will only start session saving when an actual file was opened
 	},
 	{
+
+		"preservim/nerdtree",
+		keys = {
+			{ "tt", ":NERDTreeToggle<CR>", desc = "toggle nerdtree" },
+		},
+		cmd = { 'NERDTreeToggle', 'NERDTreeFind', 'NERDTree' },
+		config = function()
+			vim.cmd([[
+				" enable line numbers
+				let NERDTreeShowLineNumbers=1
+				" make sure relative line numbers are used
+				autocmd FileType nerdtree setlocal relativenumber
+			]])
+		end
+	},
+	{
 		"windwp/nvim-autopairs",
 		event = "VeryLazy",
 		config = function()

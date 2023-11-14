@@ -9,6 +9,7 @@ set.smarttab = true
 set.scrolloff = 6
 set.ignorecase = true
 set.smartcase = true
+set.encoding = 'UTF-8'
 
 
 -- 在 copy 后高亮
@@ -108,7 +109,8 @@ require("lazy").setup({
 				" make sure relative line numbers are used
 				autocmd FileType nerdtree setlocal relativenumber
 			]])
-		end
+		end,
+		dependencies = { 'Xuyuanp/nerdtree-git-plugin', 'ryanoasis/vim-devicons' },
 	},
 	{
 		"windwp/nvim-autopairs",
@@ -150,6 +152,36 @@ require("lazy").setup({
 			'L3MON4D3/LuaSnip',
 			'hrsh7th/cmp-vsnip'
 		}
+	},
+	{
+		'nvim-treesitter/nvim-treesitter',
+		config = function()
+			-- 报错 No C compiler found! "cc", "gcc", "clang", "cl", "zig" are not executable.
+			-- window环境，下载 zig 。使用 scoop install zig
+			-- https://github.com/ziglang/zig/wiki/Install-Zig-from-a-Package-Manager
+			require('nvim-treesitter.configs').setup({
+				-- :TSInstallInfo 命令查看支持的语言
+				ensure_installed = { "html", "css", "vim", "lua", "javascript", "typescript", "tsx" },
+				-- 启用代码高亮功能
+				highlight = {
+					enable = true
+				},
+				-- 启用增量选择
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+						init_selection = '<CR>',
+						node_incremental = '<CR>',
+						node_decremental = '<BS>',
+						scope_incremental = '<TAB>',
+					}
+				},
+				-- 启用基于Treesitter的代码格式化(=) . NOTE: This is an experimental feature.
+				indent = {
+					enable = true
+				}
+			})
+		end
 	},
 	{
 		"williamboman/mason.nvim",
@@ -345,3 +377,14 @@ cmp.setup.cmdline(':', {
 
 -- 应用 Aurora 主题
 vim.cmd("colorscheme aurora")
+-- 应用代码高亮
+vim.api.nvim_set_hl(0, '@lsp.type.variable.lua', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'Identifier', { link = 'Normal' })
+vim.api.nvim_set_hl(0, 'TSVariable', { link = 'Normal' })
+
+
+
+
+
+
+

@@ -10,13 +10,16 @@
   "mason-lspconfig.nvim": { "branch": "main", "commit": "6eb8cae80f2e4322ec82cd9f8fa423f6d1eb02c3" },
   "mason.nvim": { "branch": "main", "commit": "41e75af1f578e55ba050c863587cffde3556ffa6" },
   "nerdtree": { "branch": "master", "commit": "4c588f182090e01edadeecb127a353cb08d1e39f" },
+  "nerdtree-git-plugin": { "branch": "master", "commit": "e1fe727127a813095854a5b063c15e955a77eafb" },
   "nvim-autopairs": { "branch": "master", "commit": "0f04d78619cce9a5af4f355968040f7d675854a1" },
   "nvim-cmp": { "branch": "main", "commit": "0b751f6beef40fd47375eaf53d3057e0bfa317e4" },
   "nvim-lspconfig": { "branch": "master", "commit": "90a28fd7637b66e055af62387ecee06f7cbd3173" },
+  "nvim-treesitter": { "branch": "master", "commit": "c0da2013d1cef768c00f3f0b7f365fe19a10bca3" },
   "persistence.nvim": { "branch": "main", "commit": "ad538bfd5336f1335cdb6fd4e0b0eebfa6e12f32" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "telescope.nvim": { "branch": "master", "commit": "7011eaae0ac1afe036e30c95cf80200b8dc3f21a" },
   "vim-aurora": { "branch": "master", "commit": "299dc966c13b30435218fe57ebc47ce7eb98b060" },
+  "vim-devicons": { "branch": "master", "commit": "71f239af28b7214eebb60d4ea5bd040291fb7e33" },
   "vim-visual-multi": { "branch": "master", "commit": "aec289a9fdabaa0ee6087d044d75b32e12084344" },
   "which-key.nvim": { "branch": "main", "commit": "4433e5ec9a507e5097571ed55c02ea9658fb268a" }
 }

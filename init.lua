@@ -2,6 +2,7 @@ require('config.defaults')
 require('config.keymaps')
 require('utils.index')
 if vim.g.vscode then
+	_G.vscode = require('vscode-neovim')
 	require('config.vscode-settings')
 	-- Optional plugin
 	-- vim.cmd [[source $HOME/.config/nvim/vscode/easymotion-config.vim]]

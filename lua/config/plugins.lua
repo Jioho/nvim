@@ -35,6 +35,12 @@ require("lazy").setup({
       })
     end
   },
+  {
+    "easymotion/vim-easymotion",
+    config = function()
+      vim.keymap.set({ "x", "n" }, '<leader>f', '<Plug>(easymotion-bd-f)', {})
+    end
+  },
 
   -- vscode plugins
   {

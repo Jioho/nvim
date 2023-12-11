@@ -1,6 +1,8 @@
 require('config.defaults')
 require('config.keymaps')
 require('utils.index')
+require('config.plugins')
+
 if vim.g.vscode then
 	_G.vscode = require('vscode-neovim')
 	require('config.vscode-settings')

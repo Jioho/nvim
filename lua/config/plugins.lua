@@ -41,7 +41,6 @@ require("lazy").setup({
       vim.keymap.set({ "x", "n" }, '<leader>f', '<Plug>(easymotion-bd-f)', {})
     end
   },
-
   -- vscode plugins
   {
     'vscode-neovim/vscode-multi-cursor.nvim',

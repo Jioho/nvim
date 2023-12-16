@@ -4,7 +4,7 @@ local mode_v = { "v" }
 local mode_i = { "i" }
 
 local mappings = {
-  { from = "jk",        to = "<Esc>",    mode = mode_i },
+  { from = "jk",        to = "<Esc>",         mode = mode_i },
   -- window
   { from = "<C-l>",     to = "<C-w>l" },
   { from = "<C-h>",     to = "<C-w>h" },
@@ -14,6 +14,13 @@ local mappings = {
   { from = "<Leader>s", to = "<C-w>s" },
   -- others
   { from = "<Leader>n", to = ":nohl<CR>" },
+
+  -- mouse
+  { from = "<S-Left>",  to = "<Esc>v<Left>",  mode = mode_i },
+  { from = "<S-Right>", to = "<Esc>v<Right>", mode = mode_i },
+  { from = "<S-Up>",    to = "<Esc>v<Up>",    mode = mode_i },
+  { from = "<S-Down>",  to = "<Esc>v<Down>",  mode = mode_i }
+
 }
 
 for _, mapping in ipairs(mappings) do

@@ -14,17 +14,17 @@ vim.opt.rtp:prepend(lazypath)
 
 
 require("lazy").setup({
-  {
-    "unblevable/quick-scope",
-    event = "VeryLazy",
-    init = function()
-      vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
-    end,
-    config = function() -- 禁用默认高亮
-      vim.cmd([[highlight QuickScopePrimary guifg='#6699cc' gui=underline ctermfg=155 cterm=underline]])
-      vim.cmd([[highlight QuickScopeSecondary guifg='#a074c4' gui=underline ctermfg=81 cterm=underline]])
-    end
-  },
+  -- {
+  --   "unblevable/quick-scope",
+  --   event = "VeryLazy",
+  --   init = function()
+  --     vim.g.qs_highlight_on_keys = { 'f', 'F', 't', 'T' }
+  --   end,
+  --   config = function() -- 禁用默认高亮
+  --     vim.cmd([[highlight QuickScopePrimary guifg='#6699cc' gui=underline ctermfg=155 cterm=underline]])
+  --     vim.cmd([[highlight QuickScopeSecondary guifg='#a074c4' gui=underline ctermfg=81 cterm=underline]])
+  --   end
+  -- },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -41,13 +41,30 @@ require("lazy").setup({
       vim.keymap.set({ "x", "n" }, '<leader>f', '<Plug>(easymotion-bd-f)', {})
     end
   },
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "S",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+    },
+  },
+  -- {
+  --   "mg979/vim-visual-multi",
+  --   event = "VeryLazy"
+  -- },
   -- vscode plugins
   {
     'vscode-neovim/vscode-multi-cursor.nvim',
     event = 'VeryLazy',
     cond = not not vim.g.vscode,
     init = function()
-      vim.keymap.set({ "n", "x", "i" }, "<C-d>", function()
+      require("vscode-multi-cursor").setup({
+        default_mappings = true
+      })
+
+      vim.keymap.set('n', '<C-d>', 'mciw*<Cmd>nohl<CR>', { remap = true })
+      vim.keymap.set({ "i" }, "<C-d>", function()
         require("vscode-multi-cursor").addSelectionToNextFindMatch()
       end)
     end

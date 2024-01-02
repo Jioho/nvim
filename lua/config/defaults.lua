@@ -13,8 +13,7 @@ vim.o.splitright     = true
 vim.o.splitbelow     = true
 vim.o.foldenable     = true
 vim.o.foldnestmax    = 10
-vim.o.nofoldenable   = true
-vim.o.foldlevel      = 2
+vim.o.foldlevel      = 99
 vim.o.foldmethod   = "indent"
 
 -- vim.env.NVIM_TUI_ENABLE_TRUE_COLOR = 1

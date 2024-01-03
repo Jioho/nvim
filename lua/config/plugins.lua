@@ -25,6 +25,12 @@ require("lazy").setup({
   --     vim.cmd([[highlight QuickScopeSecondary guifg='#a074c4' gui=underline ctermfg=81 cterm=underline]])
   --   end
   -- },
+  -- {
+  --   "easymotion/vim-easymotion",
+  --   config = function()
+  --     vim.keymap.set({ "x", "n" }, '<leader>f', '<Plug>(easymotion-bd-f)', {})
+  --   end
+  -- },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -36,17 +42,14 @@ require("lazy").setup({
     end
   },
   {
-    "easymotion/vim-easymotion",
-    config = function()
-      vim.keymap.set({ "x", "n" }, '<leader>f', '<Plug>(easymotion-bd-f)', {})
-    end
-  },
-  {
     "folke/flash.nvim",
     event = "VeryLazy",
     keys = {
-      { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
-      { "S",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
+      { "f",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "<leader>f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "F",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "t",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "T",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     },
   },
   -- {

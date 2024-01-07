@@ -44,12 +44,27 @@ require("lazy").setup({
   {
     "folke/flash.nvim",
     event = "VeryLazy",
+    opts = {
+      label = {
+        uppercase = false,
+      },
+      modes = {
+        search = {
+          enabled = false
+        },
+        char = {
+          multi_line = true,
+          jump_labels = true,
+          autohide = true
+        }
+      }
+    },
     keys = {
       { "f",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "<leader>f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "F",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "t",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "T",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      { "<leader>f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     },
   },
   -- {

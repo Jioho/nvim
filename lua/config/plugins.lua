@@ -54,7 +54,7 @@ require("lazy").setup({
         },
         char = {
           multi_line = true,
-          jump_labels = true,
+          jump_labels = false,
           autohide = true
         }
       }

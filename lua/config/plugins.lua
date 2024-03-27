@@ -50,7 +50,8 @@ require("lazy").setup({
       },
       modes = {
         search = {
-          enabled = false
+          enabled = false,
+          wrap = false
         },
         char = {
           multi_line = true,
@@ -60,10 +61,10 @@ require("lazy").setup({
       }
     },
     keys = {
-      { "f",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "F",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "t",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "T",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      -- { "f",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      -- { "F",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      -- { "t",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
+      -- { "T",         mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
       { "<leader>f", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
     },
   },

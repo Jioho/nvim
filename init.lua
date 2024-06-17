@@ -4,7 +4,7 @@ require('utils.index')
 require('config.plugins')
 
 if vim.g.vscode then
-	_G.vscode = require('vscode-neovim')
+	_G.vsc = require('vscode-neovim')
 	require('config.vscode-settings')
 	-- Optional plugin
 	-- vim.cmd [[source $HOME/.config/nvim/vscode/easymotion-config.vim]]
